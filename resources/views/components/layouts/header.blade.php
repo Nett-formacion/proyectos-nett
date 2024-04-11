@@ -1,4 +1,5 @@
 <header class="h-15v bg-header flex flex-row justify-between items-center p-4">
+
     <img class="max-h-full" src="{{asset("/images/logo.png")}}" alt="Logo">
     <h1 class="text-6xl text-white">Aplicacion de Laravel</h1>
     @guest
