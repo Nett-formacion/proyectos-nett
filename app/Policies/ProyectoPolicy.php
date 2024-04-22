@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Proyectos;
+use App\Models\Proyecto;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class ProyectosPolicy
+class ProyectoPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class ProyectosPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Proyectos $proyectos): bool
+    public function view(User $user, Proyecto $proyecto): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class ProyectosPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Proyectos $proyectos): bool
+    public function update(User $user, Proyecto $proyecto): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class ProyectosPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Proyectos $proyectos): bool
+    public function delete(User $user, Proyecto $proyecto): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ProyectosPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Proyectos $proyectos): bool
+    public function restore(User $user, Proyecto $proyecto): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ProyectosPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Proyectos $proyectos): bool
+    public function forceDelete(User $user, Proyecto $proyecto): bool
     {
         //
     }

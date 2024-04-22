@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProyectosRequest extends FormRequest
+class UpdateProyectoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreProyectosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "titulo"=>"required|min:10",
+            "url"=>"required|url",
+            "horas"=>"integer|min:80|max:300"
         ];
     }
 }

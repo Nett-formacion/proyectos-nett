@@ -11,17 +11,17 @@ class AlumnoController extends Controller
 
     public function index(){
         $alumnos = Alumno::all();
-        return view ("proyectos.alumnos", ["alumnos"=>$alumnos]);
+        return view ("alumnos.listado", ["alumnos"=>$alumnos]);
     }
     public function create(){
-        return view ("proyectos.alumno_create");
+        return view ("alumnos.create");
     }
 
     public function store(Request $request){
         $alumno = new Alumno($request->input());
         $alumno->save();
         $alumnos = Alumno::all();
-        return view ("proyectos.alumnos", ["alumnos"=>$alumnos]);
+        return view ("alumnos.listado", ["alumnos"=>$alumnos]);
 
     }
 
@@ -31,13 +31,13 @@ class AlumnoController extends Controller
 
         $alumno->delete();
         $alumnos = Alumno::all();
-        return view ("proyectos.alumnos", ["alumnos"=>$alumnos]);
+        return view ("alumnos.listado", ["alumnos"=>$alumnos]);
 
     }
 
     public function edit (int $id){
         $alumno = Alumno::find($id);
-        return view ("proyectos.alumno_edit", ["alumno"=>$alumno]);
+        return view ("alumnos.edit", ["alumno"=>$alumno]);
 
 
     }
