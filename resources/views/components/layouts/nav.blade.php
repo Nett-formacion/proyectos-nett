@@ -2,8 +2,8 @@
     <a class="btn  btn-primary" href="/">Home</a>
     <a class="btn btn-secondary" href="{{route("about")}}">About</a>
     @auth
-        <a class="btn  btn-active" href="proyectos">Proyectos</a>
+        <a class="btn  btn-active" href="{{route("proyectos.index")}}">Proyectos</a>
     @endauth
-    <a class="btn  btn-accent" href="alumnos">Alumnos</a>
+    <a class="btn  btn-accent" href="{{route("alumnos.index")}}">Alumnos</a>
     <a class="btn  btn-warning" href="contacta">Contacta</a>
 </nav>

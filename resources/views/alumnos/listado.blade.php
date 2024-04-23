@@ -6,10 +6,10 @@
             <thead>
             <tr>
                 <th>nombre</th>
-                <th>direccion</th>
                 <th>dni</th>
                 <th>edad</th>
                 <th>email</th>
+                <th>Idiomas</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -18,16 +18,22 @@
             @foreach($alumnos as $alumno)
                 <tr>
                     <td>{{$alumno->nombre}}</td>
-                    <td>{{$alumno->direccion}}</td>
                     <td>{{$alumno->dni}}</td>
                     <td>{{$alumno->edad}}</td>
                     <td>{{$alumno->email}}</td>
                     <td>
+                        <select name="" id="">
+                            @foreach($alumno->idiomas as $idioma)
+                                <option>{{$idioma->idioma}}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
                         {{--                Delete --}}
-                        <form action="/alumnos/{{$alumno->id}}" method="POST">
+                        <form id="formulario{{$alumno->id}}" onsubmit=event.preventDefault() action="/alumnos/{{$alumno->id}}" method="POST">
                             @method("DELETE")
                             @csrf
-                            <button type="submit">
+                            <button  onclick="confirmDelete({{$alumno->id}})">
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                              viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-600">
@@ -38,7 +44,7 @@
                         </form>
                     </td>
                     <td>
-                        <a href="/alumnos/edit/{{$alumno->id}}">
+                        <a href="{{route("alumnos.edit", $alumno->id)}}">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                  stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-500">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -51,6 +57,21 @@
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete(id){
+            swal({
+                title:"Seguro que quieres borrar",
+                text: "Esta acción es  no reversible",
+                icon: "info",
+                buttons:true,
+            })
+                .then((resultado)=>{
+                    if (resultado){
+                        document.getElementById("formulario"+id).submit()
+                    }
+                });
+        }
+    </script>
 
 
 </x-layouts.layout>

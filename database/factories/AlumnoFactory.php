@@ -26,7 +26,6 @@ class AlumnoFactory extends Factory
     {
         return [
         "nombre"=>fake()->name(),
-        "direccion"=>fake()->address(),
         "dni"=>$this->get_dni(),
         "edad"=>fake()->numberBetween(10,70),
         "email"=>fake()->email()

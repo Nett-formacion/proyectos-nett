@@ -3,7 +3,7 @@
     <div class=" flex flex-row justify-center items-center p-8 h-full">
             <form action="{{route("proyectos.store")}}" method="POST"  class="bg-white rounded p-5">
                 @csrf
-                <x-input-label  > Titulo</x-input-label>
+                <x-input-label  > {{__(Titulo)}}</x-input-label>
                 @if( $errors->get("titulo"))
                     @foreach($errors->get("titulo") as $error)
                         <div class="text-red-600 text-sm"> {{$error}}</div>
